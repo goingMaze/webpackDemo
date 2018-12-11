@@ -25,7 +25,7 @@ var Order = function Order() {
 
 var Commodity = function Commodity(_ref) {
   var match = _ref.match;
-  return React.createElement("h3", null, "\u5DF2\u9009\u5546\u54C1id: ", match.params.id);
+  return React.createElement("h3", null, "\u5DF2\u9009\u5546\u54C1: ", match.params.id);
 };
 
 var Commodities = function Commodities(_ref2) {

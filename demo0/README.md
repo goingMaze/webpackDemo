@@ -14,8 +14,7 @@ $ npm install
 $ npx http-server
 
 # jsx转换成js
-$ npx babel ./src/router.jsx -o ./src/router.js
-$ npx babel ./src/App.jsx -o ./src/App.js
+$ npx babel ./src --out-dir ./src --ignore ".src/*.js"
 
 # 构建
 $ npm run build

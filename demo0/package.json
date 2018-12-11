@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "test",
+    "compile": "babel ./src --out-dir ./src --ignore './src/*.js'",
     "dev": "webpack --mode development",
     "build": "webpack --mode production"
   },
