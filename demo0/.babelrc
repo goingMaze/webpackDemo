@@ -1,0 +1,12 @@
+{
+  "presets": [
+    ["@babel/env", {
+      "targets": {
+        "browsers": ["ie >= 10", "safari >= 9", "firefox >= 40", "chrome >= 40"]
+      },
+      "modules": false,
+      "useBuiltIns": "entry"
+    }],
+    "@babel/react"
+  ]
+}
