@@ -5,8 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "test": "test",
-    "start": "cross-env NODE_ENV=development  webpack-dev-server ---hot --mode development --open --config config/webpack.config.js",
-    "build": "cross-env NODE_ENV=production webpack --colors --mode production --config config/webpack.config.js"
+    "start": "cross-env NODE_ENV=development webpack-dev-server ---hot --mode development --config config/webpack.config.js",
+    "build": "cross-env NODE_ENV=production webpack --progress --colors --mode production --config config/webpack.config.js"
   },
   "keywords": [
     "webpack",

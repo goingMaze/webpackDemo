@@ -51,15 +51,15 @@ module.exports = {
         loader: 'html-loader',
       }]
     },
-    // {
-    //   // 处理业务中的全局样式
-    //   test: /\.less$/,
-    //   exclude: [
-    //     path.resolve(SRC_PATH, 'sys'),
-    //     path.resolve(ROOT_PATH, 'node_modules/antd'),
-    //   ],
-    //   use: [styleLoader, 'css-loader', 'postcss-loader', 'less-loader'],
-    // },
+    {
+      // 处理业务中的全局样式
+      test: /\.less$/,
+      exclude: [
+        path.resolve(SRC_PATH, 'sys'),
+        path.resolve(ROOT_PATH, 'node_modules/antd'),
+      ],
+      use: [styleLoader, 'css-loader', 'postcss-loader', 'less-loader'],
+    },
     {
       // 处理业务样式，开启css module
       test: /\.less$/,
@@ -70,6 +70,7 @@ module.exports = {
           localIdentName: '[local]_[hash:base64:8]',
         },
       }, 'postcss-loader', 'less-loader'],
+      include: path.resolve(SRC_PATH, 'sys'),
       exclude: /node_modules/,
     }, {
       // 处理antd样式
@@ -129,11 +130,13 @@ module.exports = {
           chunks: 'initial',
           minChunks: 2,
         },
-        // vendors: {
-        //   test: /[\\/]node_modules[\\/]/,
-        //   name: 'vendors',
-        //   chunks: 'all',
-        // },
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          // chunks: 'all',
+          chunks: 'initial',
+          minChunks: 2,
+        },
         styles: {
           name: 'styles',
           test: /\.(less|css)$/,
@@ -148,6 +151,7 @@ module.exports = {
   // devtool: "source-map",
   devServer: {
     port: 2333,
+    open: false,
     historyApiFallback: true,
     proxy: {
       '/api/*': {
