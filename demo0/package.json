@@ -5,9 +5,10 @@
   "main": "src/index.js",
   "scripts": {
     "test": "test",
-    "compile": "babel ./src --out-dir ./src --ignore './src/*.js'",
+    "compile": "babel src --out-dir src --ignore 'src/**.js'",
     "dev": "webpack --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "build2": "webpack --mode production --module-bind js=babel-loader"
   },
   "keywords": [
     "webpack",
@@ -20,6 +21,7 @@
     "@babel/core": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.4",
     "webpack": "^4.27.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10"
