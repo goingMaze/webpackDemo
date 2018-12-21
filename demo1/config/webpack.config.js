@@ -44,13 +44,14 @@ module.exports = {
       }],
       include: SRC_PATH,
       exclude: /node_modules/,
-    }, {
-      // 处理html
-      test: /\.html$/,
-      use: [{
-        loader: 'html-loader',
-      }]
     },
+    // {
+    //   // 处理html
+    //   test: /\.html$/,
+    //   use: [{
+    //     loader: 'html-loader',
+    //   }]
+    // },
     {
       // 处理业务中的全局样式
       test: /\.less$/,
@@ -84,6 +85,7 @@ module.exports = {
         options: {
           name: 'img/[name].[hash:8].[ext]',
           limit: 8192,
+          publicPath: '../',
         },
       }],
     }, {
@@ -151,8 +153,9 @@ module.exports = {
   // devtool: "source-map",
   devServer: {
     port: 2333,
-    open: false,
+    open: true,
     historyApiFallback: true,
+    overlay: true,
     proxy: {
       '/api/*': {
         target: 'http://espotms.hhtcex.com',
